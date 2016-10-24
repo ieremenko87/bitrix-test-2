@@ -611,3 +611,25 @@ if ($arResult['MODULES']['currency'])
 		unset($currencyFormat, $currency, $currencyIterator);
 	}
 }
+
+$prop = $arResult["PROPERTIES"]["PARTNER"];
+if ($prop["VALUE"] != NULL)
+{
+	$partner_data = array("CODE" => "PARTNER");
+	
+	$res = CIBlockElement::GetByID($prop["VALUE"]);
+	if($ob = $res->GetNext())
+		$partner_data["NAME"] = $ob["NAME"];
+	unset($ob);
+	unset($res);
+	
+	$res = CIBlockElement::GetProperty(4, $prop["VALUE"], array(), array());
+	while ($ob = $res->GetNext())
+	{
+		$partner_data[$ob["CODE"]] = $ob["VALUE"];
+	}
+	$arResult["DISPLAY_PROPERTIES"]["PARTNER"] = $partner_data;
+	unset($ob);
+	unset($res);
+	unset($partner_data);						
+}

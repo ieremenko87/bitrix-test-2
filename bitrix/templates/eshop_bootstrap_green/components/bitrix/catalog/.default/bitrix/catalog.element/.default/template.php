@@ -511,9 +511,10 @@ if ($arParams['USE_PRODUCT_QUANTITY'] == 'Y')
 	}
 ?>
 		</span>
+
 		<?if($showSubscribeBtn)
 		{
-			$APPLICATION->IncludeComponent('bitrix:catalog.product.subscribe','',
+			$APPLICATION->includeComponent('bitrix:catalog.product.subscribe','',
 				array(
 					'PRODUCT_ID' => $arResult['ID'],
 					'BUTTON_ID' => $arItemIDs['SUBSCRIBE_LINK'],
@@ -523,18 +524,20 @@ if ($arParams['USE_PRODUCT_QUANTITY'] == 'Y')
 				$component, array('HIDE_ICONS' => 'Y')
 			);
 		}?>
+
 		<br>
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable<?=($showSubscribeBtn ? ' bx_notavailable_subscribe' : ''); ?>" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
 	<? if ($arParams['DISPLAY_COMPARE'])
-	{?>
-			<span class="item_buttons_counter_block">
-				<a href="javascript:void(0);" class="bx_big bx_bt_button_type_2 bx_cart" id="<? echo $arItemIDs['COMPARE_LINK']; ?>"><? echo $compareBtnMessage; ?></a>
-			</span>
+	{
+		?>
+		<span class="item_buttons_counter_block">
+			<a href="javascript:void(0);" class="bx_big bx_bt_button_type_2 bx_cart" id="<? echo $arItemIDs['COMPARE_LINK']; ?>"><? echo $compareBtnMessage; ?></a>
+		</span>
 	<?} ?>
 
 	</div>
-<?
-	if ('Y' == $arParams['SHOW_MAX_QUANTITY'])
+
+	<? if ('Y' == $arParams['SHOW_MAX_QUANTITY'])
 	{
 		if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
 		{
@@ -587,13 +590,16 @@ else
 		}?>
 		<br>
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable<?=($showSubscribeBtn ? ' bx_notavailable_subscribe' : ''); ?>" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
-	<? if ($arParams['DISPLAY_COMPARE'])
+	<?if($arParams['DISPLAY_COMPARE'])
 	{
 		?>
 			<span class="item_buttons_counter_block">
-			<a href="javascript:void(0);" class="bx_big bx_bt_button_type_2 bx_cart" id="<? echo $arItemIDs['COMPARE_LINK']; ?>"><? echo $compareBtnMessage; ?></a>
+		<? if ($arParams['DISPLAY_COMPARE'])
+		{
+			?><a href="javascript:void(0);" class="bx_big bx_bt_button_type_2 bx_cart" id="<? echo $arItemIDs['COMPARE_LINK']; ?>"><? echo $compareBtnMessage; ?></a><?
+		} ?>
 			</span>
-	<?} ?>
+	<?}?>
 	</div>
 <?
 }
@@ -664,7 +670,6 @@ else
 
 if ($arResult['CATALOG'] && $arParams['USE_GIFTS_DETAIL'] == 'Y' && \Bitrix\Main\ModuleManager::isModuleInstalled("sale"))
 {
-
 	$APPLICATION->IncludeComponent("bitrix:sale.gift.product", ".default", array(
 			'PRODUCT_ID_VARIABLE' => $arParams['PRODUCT_ID_VARIABLE'],
 			'ACTION_VARIABLE' => $arParams['ACTION_VARIABLE'],
@@ -703,21 +708,21 @@ if ($arResult['CATALOG'] && $arParams['USE_GIFTS_DETAIL'] == 'Y' && \Bitrix\Main
 			"CART_PROPERTIES_{$arResult['OFFERS_IBLOCK']}" => $arParams['OFFERS_CART_PROPERTIES'],
 			"PRODUCT_QUANTITY_VARIABLE" => $arParams["PRODUCT_QUANTITY_VARIABLE"],
 			"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-		"POTENTIAL_PRODUCT_TO_BUY" => array(
-			'ID' => isset($arResult['ID']) ? $arResult['ID'] : null,
-			'MODULE' => isset($arResult['MODULE']) ? $arResult['MODULE'] : 'catalog',
-			'PRODUCT_PROVIDER_CLASS' => isset($arResult['PRODUCT_PROVIDER_CLASS']) ? $arResult['PRODUCT_PROVIDER_CLASS'] : 'CCatalogProductProvider',
-			'QUANTITY' => isset($arResult['QUANTITY']) ? $arResult['QUANTITY'] : null,
-			'IBLOCK_ID' => isset($arResult['IBLOCK_ID']) ? $arResult['IBLOCK_ID'] : null,
+			"POTENTIAL_PRODUCT_TO_BUY" => array(
+				'ID' => isset($arResult['ID']) ? $arResult['ID'] : null,
+				'MODULE' => isset($arResult['MODULE']) ? $arResult['MODULE'] : 'catalog',
+				'PRODUCT_PROVIDER_CLASS' => isset($arResult['PRODUCT_PROVIDER_CLASS']) ? $arResult['PRODUCT_PROVIDER_CLASS'] : 'CCatalogProductProvider',
+				'QUANTITY' => isset($arResult['QUANTITY']) ? $arResult['QUANTITY'] : null,
+				'IBLOCK_ID' => isset($arResult['IBLOCK_ID']) ? $arResult['IBLOCK_ID'] : null,
 
-			'PRIMARY_OFFER_ID' => isset($arResult['OFFERS'][0]['ID']) ? $arResult['OFFERS'][0]['ID'] : null,
-			'SECTION' => array(
-				'ID' => isset($arResult['SECTION']['ID']) ? $arResult['SECTION']['ID'] : null,
-				'IBLOCK_ID' => isset($arResult['SECTION']['IBLOCK_ID']) ? $arResult['SECTION']['IBLOCK_ID'] : null,
-				'LEFT_MARGIN' => isset($arResult['SECTION']['LEFT_MARGIN']) ? $arResult['SECTION']['LEFT_MARGIN'] : null,
-				'RIGHT_MARGIN' => isset($arResult['SECTION']['RIGHT_MARGIN']) ? $arResult['SECTION']['RIGHT_MARGIN'] : null,
-			),
-		)
+				'PRIMARY_OFFER_ID' => isset($arResult['OFFERS'][0]['ID']) ? $arResult['OFFERS'][0]['ID'] : null,
+				'SECTION' => array(
+					'ID' => isset($arResult['SECTION']['ID']) ? $arResult['SECTION']['ID'] : null,
+					'IBLOCK_ID' => isset($arResult['SECTION']['IBLOCK_ID']) ? $arResult['SECTION']['IBLOCK_ID'] : null,
+					'LEFT_MARGIN' => isset($arResult['SECTION']['LEFT_MARGIN']) ? $arResult['SECTION']['LEFT_MARGIN'] : null,
+					'RIGHT_MARGIN' => isset($arResult['SECTION']['RIGHT_MARGIN']) ? $arResult['SECTION']['RIGHT_MARGIN'] : null,
+				),
+			)
 		), $component, array("HIDE_ICONS" => "Y"));
 }
 if ($arResult['CATALOG'] && $arParams['USE_GIFTS_MAIN_PR_SECTION_LIST'] == 'Y' && \Bitrix\Main\ModuleManager::isModuleInstalled("sale"))

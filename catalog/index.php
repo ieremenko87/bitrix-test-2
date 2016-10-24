@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("");
 ?><?$APPLICATION->IncludeComponent("bitrix:catalog", ".default", Array(
 	"ACTION_VARIABLE" => "action",	// Название переменной, в которой передается действие
 		"ADD_ELEMENT_CHAIN" => "Y",	// Включать название элемента в цепочку навигации
-		"ADD_PICT_PROP" => "MORE_PHOTO",
+		"ADD_PICT_PROP" => "MORE_PHOTO",	// Дополнительная картинка основного товара
 		"ADD_PROPERTIES_TO_BASKET" => "Y",	// Добавлять в корзину свойства товаров и предложений
 		"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
 		"ADD_SECTION_CHAIN" => "Y",
@@ -16,34 +16,34 @@ $APPLICATION->SetTitle("");
 		"ALSO_BUY_ELEMENT_COUNT" => "4",	// Количество элементов для отображения
 		"ALSO_BUY_MIN_BUYES" => "1",	// Минимальное количество покупок товара
 		"BASKET_URL" => "/personal/cart/",	// URL, ведущий на страницу с корзиной покупателя
-		"BIG_DATA_RCM_TYPE" => "bestsell",
+		"BIG_DATA_RCM_TYPE" => "bestsell",	// Тип рекомендации
 		"CACHE_FILTER" => "Y",	// Кешировать при установленном фильтре
 		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
 		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
 		"CACHE_TYPE" => "A",	// Тип кеширования
-		"COMMON_ADD_TO_BASKET_ACTION" => "",
-		"COMMON_SHOW_CLOSE_POPUP" => "N",
+		"COMMON_ADD_TO_BASKET_ACTION" => "",	// Показывать кнопку добавления в корзину или покупки
+		"COMMON_SHOW_CLOSE_POPUP" => "N",	// Показывать кнопку продолжения покупок во всплывающих окнах
 		"CONVERT_CURRENCY" => "N",	// Показывать цены в одной валюте
-		"DETAIL_ADD_DETAIL_TO_SLIDER" => "N",
-		"DETAIL_ADD_TO_BASKET_ACTION" => array(
+		"DETAIL_ADD_DETAIL_TO_SLIDER" => "N",	// Добавлять детальную картинку в слайдер
+		"DETAIL_ADD_TO_BASKET_ACTION" => array(	// Показывать кнопки добавления в корзину и покупки на детальной странице товара
 			0 => "BUY",
 		),
 		"DETAIL_BACKGROUND_IMAGE" => "BACKGROUND_IMAGE",	// Установить фоновую картинку для шаблона из свойства
-		"DETAIL_BLOG_EMAIL_NOTIFY" => "N",
-		"DETAIL_BLOG_URL" => "catalog_comments",
-		"DETAIL_BLOG_USE" => "Y",
-		"DETAIL_BRAND_PROP_CODE" => array(
+		"DETAIL_BLOG_EMAIL_NOTIFY" => "N",	// Уведомление по электронной почте
+		"DETAIL_BLOG_URL" => "catalog_comments",	// Название блога латинскими буквами
+		"DETAIL_BLOG_USE" => "Y",	// Использовать комментарии
+		"DETAIL_BRAND_PROP_CODE" => array(	// Таблица с брендами
 			0 => "BRAND_REF",
 			1 => "",
 		),
-		"DETAIL_BRAND_USE" => "Y",
+		"DETAIL_BRAND_USE" => "Y",	// Использовать компонент "Бренды"
 		"DETAIL_BROWSER_TITLE" => "TITLE",	// Установить заголовок окна браузера из свойства
 		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",	// Использовать код группы из переменной, если не задан раздел элемента
-		"DETAIL_DETAIL_PICTURE_MODE" => "IMG",
-		"DETAIL_DISPLAY_NAME" => "N",
-		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",
-		"DETAIL_FB_APP_ID" => "",
-		"DETAIL_FB_USE" => "Y",
+		"DETAIL_DETAIL_PICTURE_MODE" => "IMG",	// Режим показа детальной картинки
+		"DETAIL_DISPLAY_NAME" => "N",	// Выводить название элемента
+		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",	// Показ описания для анонса на детальной странице
+		"DETAIL_FB_APP_ID" => "",	// Идентификатор приложения (APP_ID)
+		"DETAIL_FB_USE" => "Y",	// Использовать Facebook
 		"DETAIL_META_DESCRIPTION" => "META_DESCRIPTION",	// Установить описание страницы из свойства
 		"DETAIL_META_KEYWORDS" => "KEYWORDS",	// Установить ключевые слова страницы из свойства
 		"DETAIL_OFFERS_FIELD_CODE" => array(	// Поля предложений
@@ -67,12 +67,12 @@ $APPLICATION->SetTitle("");
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",	// Устанавливать канонический URL
 		"DETAIL_SET_VIEWED_IN_COMPONENT" => "N",	// Включить сохранение информации о просмотре товара на детальной странице для старых шаблонов
-		"DETAIL_SHOW_BASIS_PRICE" => "Y",
-		"DETAIL_SHOW_MAX_QUANTITY" => "N",
-		"DETAIL_USE_COMMENTS" => "Y",
-		"DETAIL_USE_VOTE_RATING" => "Y",
-		"DETAIL_VK_USE" => "N",
-		"DETAIL_VOTE_DISPLAY_AS_RATING" => "rating",
+		"DETAIL_SHOW_BASIS_PRICE" => "Y",	// Показывать на детальной странице цену за единицу товара
+		"DETAIL_SHOW_MAX_QUANTITY" => "N",	// Показывать общее количество товара
+		"DETAIL_USE_COMMENTS" => "Y",	// Включить отзывы о товаре
+		"DETAIL_USE_VOTE_RATING" => "Y",	// Включить рейтинг товара
+		"DETAIL_VK_USE" => "N",	// Использовать Вконтакте
+		"DETAIL_VOTE_DISPLAY_AS_RATING" => "rating",	// В качестве рейтинга показывать
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",	// Не подключать js-библиотеки в компоненте
 		"DISPLAY_BOTTOM_PAGER" => "Y",	// Выводить под списком
 		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
@@ -106,7 +106,7 @@ $APPLICATION->SetTitle("");
 			0 => "",
 			1 => "",
 		),
-		"FILTER_VIEW_MODE" => "VERTICAL",
+		"FILTER_VIEW_MODE" => "VERTICAL",	// Вид отображения умного фильтра
 		"FORUM_ID" => "1",	// ID форума для отзывов
 		"GIFTS_DETAIL_BLOCK_TITLE" => "Выберите один из подарков",	// Текст заголовка "Подарки" в детальном просмотре
 		"GIFTS_DETAIL_HIDE_BLOCK_TITLE" => "N",	// Скрыть заголовок "Подарки" в детальном просмотре
@@ -128,8 +128,8 @@ $APPLICATION->SetTitle("");
 		"IBLOCK_ID" => "2",	// Инфоблок
 		"IBLOCK_TYPE" => "catalog",	// Тип инфоблока
 		"INCLUDE_SUBSECTIONS" => "Y",	// Показывать элементы подразделов раздела
-		"INSTANT_RELOAD" => "N",
-		"LABEL_PROP" => "NEWPRODUCT",
+		"INSTANT_RELOAD" => "N",	// Мгновенная фильтрация при включенном AJAX
+		"LABEL_PROP" => "NEWPRODUCT",	// Свойство меток товара
 		"LINE_ELEMENT_COUNT" => "3",	// Количество элементов, выводимых в одной строке таблицы
 		"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",	// URL на страницу, где будет показан список связанных элементов
 		"LINK_IBLOCK_ID" => "",	// ID инфоблока, элементы которого связаны с текущим элементом
@@ -162,11 +162,11 @@ $APPLICATION->SetTitle("");
 		"MAIN_TITLE" => "Наличие на складах",	// Заголовок блока
 		"MESSAGES_PER_PAGE" => "10",	// Количество сообщений на одной странице
 		"MESSAGE_404" => "",	// Сообщение для показа (по умолчанию из компонента)
-		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
-		"MESS_BTN_BUY" => "Купить",
-		"MESS_BTN_COMPARE" => "Сравнение",
-		"MESS_BTN_DETAIL" => "Подробнее",
-		"MESS_NOT_AVAILABLE" => "Нет в наличии",
+		"MESS_BTN_ADD_TO_BASKET" => "В корзину",	// Текст кнопки "Добавить в корзину"
+		"MESS_BTN_BUY" => "Купить",	// Текст кнопки "Купить"
+		"MESS_BTN_COMPARE" => "Сравнение",	// Текст кнопки "Сравнение"
+		"MESS_BTN_DETAIL" => "Подробнее",	// Текст кнопки "Подробнее"
+		"MESS_NOT_AVAILABLE" => "Нет в наличии",	// Сообщение об отсутствии товара
 		"MIN_AMOUNT" => "10",
 		"OFFERS_CART_PROPERTIES" => array(	// Свойства предложений, добавляемые в корзину
 			0 => "COLOR_REF",
@@ -177,8 +177,8 @@ $APPLICATION->SetTitle("");
 		"OFFERS_SORT_FIELD2" => "id",	// Поле для второй сортировки предложений товара
 		"OFFERS_SORT_ORDER" => "desc",	// Порядок сортировки предложений товара
 		"OFFERS_SORT_ORDER2" => "desc",	// Порядок второй сортировки предложений товара
-		"OFFER_ADD_PICT_PROP" => "MORE_PHOTO",
-		"OFFER_TREE_PROPS" => array(
+		"OFFER_ADD_PICT_PROP" => "MORE_PHOTO",	// Дополнительные картинки предложения
+		"OFFER_TREE_PROPS" => array(	// Свойства для отбора предложений
 			0 => "COLOR_REF",
 			1 => "SIZES_SHOES",
 			2 => "SIZES_CLOTHES",
@@ -198,17 +198,17 @@ $APPLICATION->SetTitle("");
 		),
 		"PRICE_VAT_INCLUDE" => "Y",	// Включать НДС в цену
 		"PRICE_VAT_SHOW_VALUE" => "N",	// Отображать значение НДС
-		"PRODUCT_DISPLAY_MODE" => "Y",
+		"PRODUCT_DISPLAY_MODE" => "Y",	// Схема отображения
 		"PRODUCT_ID_VARIABLE" => "id",	// Название переменной, в которой передается код товара для покупки
 		"PRODUCT_PROPERTIES" => "",	// Характеристики товара, добавляемые в корзину
 		"PRODUCT_PROPS_VARIABLE" => "prop",	// Название переменной, в которой передаются характеристики товара
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",	// Название переменной, в которой передается количество товара
 		"QUANTITY_FLOAT" => "N",
 		"REVIEW_AJAX_POST" => "Y",	// Использовать AJAX в диалогах
-		"SECTIONS_HIDE_SECTION_NAME" => "N",
-		"SECTIONS_SHOW_PARENT_NAME" => "N",
-		"SECTIONS_VIEW_MODE" => "TILE",
-		"SECTION_ADD_TO_BASKET_ACTION" => "ADD",
+		"SECTIONS_HIDE_SECTION_NAME" => "N",	// Не показывать названия подразделов
+		"SECTIONS_SHOW_PARENT_NAME" => "N",	// Показывать название раздела
+		"SECTIONS_VIEW_MODE" => "TILE",	// Вид списка подразделов
+		"SECTION_ADD_TO_BASKET_ACTION" => "ADD",	// Показывать кнопку добавления в корзину или покупки на странице списка товаров
 		"SECTION_BACKGROUND_IMAGE" => "UF_BACKGROUND_IMAGE",	// Установить фоновую картинку для шаблона из свойства
 		"SECTION_COUNT_ELEMENTS" => "N",	// Показывать количество элементов в разделе
 		"SECTION_ID_VARIABLE" => "SECTION_ID",	// Название переменной, в которой передается код группы
@@ -227,29 +227,29 @@ $APPLICATION->SetTitle("");
 		"SET_TITLE" => "Y",	// Устанавливать заголовок страницы
 		"SHOW_404" => "N",	// Показ специальной страницы
 		"SHOW_DEACTIVATED" => "N",	// Показывать деактивированные товары
-		"SHOW_DISCOUNT_PERCENT" => "Y",
+		"SHOW_DISCOUNT_PERCENT" => "Y",	// Показывать процент скидки
 		"SHOW_EMPTY_STORE" => "Y",	// Отображать склад при отсутствии на нем товара
 		"SHOW_GENERAL_STORE_INFORMATION" => "N",	// Показывать общую информацию по складам
 		"SHOW_LINK_TO_FORUM" => "Y",	// Показать ссылку на форум
-		"SHOW_OLD_PRICE" => "Y",
+		"SHOW_OLD_PRICE" => "Y",	// Показывать старую цену
 		"SHOW_PRICE_COUNT" => "1",	// Выводить цены для количества
 		"SHOW_TOP_ELEMENTS" => "N",	// Выводить топ элементов
-		"SIDEBAR_DETAIL_SHOW" => "Y",
-		"SIDEBAR_PATH" => "/catalog/sidebar.php",
-		"SIDEBAR_SECTION_SHOW" => "Y",
+		"SIDEBAR_DETAIL_SHOW" => "Y",	// Показывать правый блок на детальной странице
+		"SIDEBAR_PATH" => "/catalog/sidebar.php",	// Путь к включаемой области для вывода информации в правом блоке
+		"SIDEBAR_SECTION_SHOW" => "Y",	// Показывать правый блок в списке товаров
 		"STORES" => "",	// Склады
 		"STORE_PATH" => "/store/#store_id#",	// Шаблон пути к каталогу STORE (относительно корня)
-		"TEMPLATE_THEME" => "site",
-		"TOP_ADD_TO_BASKET_ACTION" => "ADD",
+		"TEMPLATE_THEME" => "site",	// Цветовая тема
+		"TOP_ADD_TO_BASKET_ACTION" => "ADD",	// Показывать кнопку добавления в корзину или покупки на странице с top'ом товаров
 		"URL_TEMPLATES_READ" => "",	// Страница чтения темы (пусто - получить из настроек форума)
 		"USER_FIELDS" => array(	// Пользовательские поля
 			0 => "",
 			1 => "",
 		),
 		"USE_ALSO_BUY" => "Y",	// Показывать блок "С этим товаром покупают"
-		"USE_BIG_DATA" => "Y",
+		"USE_BIG_DATA" => "Y",	// Показывать персональные рекомендации
 		"USE_CAPTCHA" => "Y",	// Использовать CAPTCHA
-		"USE_COMMON_SETTINGS_BASKET_POPUP" => "N",
+		"USE_COMMON_SETTINGS_BASKET_POPUP" => "N",	// Одинаковые настройки показа кнопок добавления в корзину или покупки на всех страницах
 		"USE_COMPARE" => "N",	// Разрешить сравнение товаров
 		"USE_ELEMENT_COUNTER" => "Y",	// Использовать счетчик просмотров
 		"USE_FILTER" => "Y",	// Показывать фильтр
@@ -261,7 +261,7 @@ $APPLICATION->SetTitle("");
 		"USE_PRICE_COUNT" => "N",	// Использовать вывод цен с диапазонами
 		"USE_PRODUCT_QUANTITY" => "Y",	// Разрешить указание количества товара
 		"USE_REVIEW" => "Y",	// Разрешить отзывы
-		"USE_SALE_BESTSELLERS" => "Y",
+		"USE_SALE_BESTSELLERS" => "Y",	// Показывать список лидеров продаж
 		"USE_STORE" => "Y",	// Показывать блок "Количество товара на складе"
 	),
 	false

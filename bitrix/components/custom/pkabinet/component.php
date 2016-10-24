@@ -23,7 +23,7 @@ else
 	// Получим партнеров, где он является оператором
 	$partners = array();
 	$arSelect = array("ID", "IBLOCK_ID", "NAME", "DATE_ACTIVE_FROM", "ACTIVE");
-	$arFilter = array("IBLOCK_ID" => 4, "PROPERTY_OPERATOR" => $current_user);
+	$arFilter = array("IBLOCK_ID" => $arParams["PARTNERS_IBLOCK_ID"], "PROPERTY_OPERATOR" => $current_user);
 	$res = CIBlockElement::GetList(array(), $arFilter, false, array(), $arSelect);
 	while ($ob = $res->GetNext()) {
 		$partners[] = $ob["ID"];
@@ -38,12 +38,18 @@ else
 		$products = array();
 		foreach ($partners as $partner)
 		{
+			$products[$partner] = array();
 			$arSelect = array("ID", "IBLOCK_ID", "NAME", "DATE_ACTIVE_FROM", "ACTIVE");
-			$arFilter = array("IBLOCK_ID" => 2, "PROPERTY_PARTNER" => $partner);
-			$res = CIBlockElement::GetList(array(), $arFilter, false, array("nPageSize" => 1), $arSelect);
-			$products[$partner] = $res;
+			$arFilter = array("IBLOCK_ID" => $arParams["ITEMS_IBLOCK_ID"], "PROPERTY_PARTNER" => $partner);
+			$res = CIBlockElement::GetList(array(), $arFilter, false, array("nPageSize" => $arParams["ITEMS_PER_PAGE"]), $arSelect);
+			$res->NavStart();
+			while ($item = $res->Fetch()) {
+				$prod = array("ID" => $item["ID"], "NAME" => $item["NAME"], "ACTIVE" => $item["ACTIVE"]);
+				$products[$partner][] = $prod;
+				unlink($prod);
+			}
+			$products[$partner]["NAV_STRING"] = $res->GetPageNavStringEx($navComponentObject, "Товары", $arParams["PAGER_TEMPLATE"]);
 		}
-
 		// Передаем результаты
 		$arResult["ITEMS"] = $products;
 
